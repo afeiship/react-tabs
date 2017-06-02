@@ -43,6 +43,6 @@ class App extends React.Component{
 /*===example end===*/
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('app')
+  <App />,
+  document.getElementById('app')
 );
