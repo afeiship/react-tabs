@@ -42,13 +42,41 @@ export default class extends PureComponent{
     })
   }
 
+  set className (inValue){
+    this._className = inValue;
+  }
+
+  get className(){
+    return this._className || 'react-tabs-base';
+  }
+
+  set clickable (inValue){
+    this._clickable = inValue;
+  }
+
+  get clickable(){
+    return typeof(this._clickable) === 'undefined' ? true : this._clickable;
+  }
+
   _onClick = (inIndex,inEvent) =>{
-    this.setState({ activeIndex:inIndex },()=>{
-      this.props.onItemClick({
-        target : {
-          value: inIndex
-        }
+    if(this.clickable){
+      this.setState({ activeIndex:inIndex },()=>{
+        this.props.onItemClick({
+          target : {
+            value: inIndex
+          }
+        });
       });
-    });
+    }
   };
+
+  render(){
+    const { className,activeIndex,onItemClick,overflow,style,...props } = this.props;
+    const newStyle = overflow ? objectAssign({overflow},style) : null;
+    return (
+      <div {...props} style={newStyle} data-active-index={this.state.activeIndex} className={classNames(this.className,className)}>
+        <ul className="scroller">{this.children}</ul>
+      </div>
+    );
+  }
 }

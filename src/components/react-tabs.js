@@ -10,9 +10,6 @@ export default class extends PureComponent{
   static propTypes = {
     className:PropTypes.string
   };
-
-  static defaultProps = {
-  };
   /*===properties end===*/
 
   render(){

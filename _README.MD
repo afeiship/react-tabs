@@ -10,6 +10,7 @@
     className:PropTypes.string,
     activeIndex:PropTypes.number,
     onItemClick:PropTypes.func,
+    overflow:PropTypes.oneOf(['hidden','scroll','auto']),
   };
 
   static defaultProps = {
