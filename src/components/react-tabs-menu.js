@@ -8,9 +8,10 @@ import objectAssign from 'object-assign';
 
 export default class extends ReactTabsBase{
   render(){
-    const { className,activeIndex,onItemClick,...props } = this.props;
+    const { className,activeIndex,onItemClick,overflow,style,...props } = this.props;
+    const newStyle = overflow ? objectAssign({overflow},style) : null;
     return (
-      <menu {...props} data-active-index={this.state.activeIndex} className={classNames('react-tabs-menu',className)}>
+      <menu {...props} style={newStyle} data-active-index={this.state.activeIndex} className={classNames('react-tabs-menu',className)}>
         <div className="scroller">{this.children}</div>
       </menu>
     );

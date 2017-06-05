@@ -16,9 +16,10 @@ export default class extends ReactTabsBase{
   }
 
   render(){
-    const { className,activeIndex,onItemClick,...props } = this.props;
+    const { className,activeIndex,onItemClick,overflow,style,...props } = this.props;
+    const newStyle = overflow ? objectAssign({overflow},style) : null;
     return (
-      <div {...props} data-active-index={this.state.activeIndex} className={classNames('react-tabs-body',className)}>
+      <div {...props} style={newStyle} data-active-index={this.state.activeIndex} className={classNames('react-tabs-body',className)}>
         <div className="scroller">{this.children}</div>
       </div>
     );

@@ -25,7 +25,7 @@ class App extends React.Component{
     return (
       <div className="hello-react-tabs">
         <ReactTabs>
-          <ReactTabsMenu onItemClick={this._click} activeIndex={this.state.activeIndex}>
+          <ReactTabsMenu overflow='hidden' onItemClick={this._click} activeIndex={this.state.activeIndex}>
             <span>已开始</span>
             <span>进行中</span>
             <span>已结束</span>
