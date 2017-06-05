@@ -10,7 +10,9 @@ export default class extends ReactTabsBase{
   render(){
     const { className,activeIndex,onItemClick,...props } = this.props;
     return (
-      <menu {...props} data-active-index={this.state.activeIndex} className={classNames('react-tabs-menu',className)}> {this.children} </menu>
+      <menu {...props} data-active-index={this.state.activeIndex} className={classNames('react-tabs-menu',className)}>
+        <div className="scroller">{this.children}</div>
+      </menu>
     );
   }
 }
