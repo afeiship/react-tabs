@@ -1,0 +1,19 @@
+$react-tabs-options: () !default;
+
+.react-tabs {
+  &__nav {
+    border: 1px solid #f00;
+    cursor: default;
+    &[data-active="true"] {
+      color: #f00;
+    }
+  }
+
+  &__tab {
+    border: 1px solid #060;
+    display: none;
+    &[data-active="true"] {
+      display: block;
+    }
+  }
+}
