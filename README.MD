@@ -12,11 +12,12 @@ npm install -S @jswork/react-tabs
 ```
 
 ## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| Name      | Type    | Required | Default | Description                           |
+| --------- | ------- | -------- | ------- | ------------------------------------- |
+| className | string  | false    | -       | The extended className for component. |
+| value     | string  | false    | -       | The changed value.                    |
+| extra     | element | false    | -       | The extra element.                    |
+| onChange  | func    | false    | noop    | The change handler.                   |
 
 
 ## usage
@@ -35,7 +36,7 @@ npm install -S @jswork/react-tabs
   import ReactDemokit from '@jswork/react-demokit';
   import React from 'react';
   import ReactDOM from 'react-dom';
-  import ReactTabs from '@jswork/react-tabs';
+  import { Tabs, Tab } from '@jswork/react-tabs';
   import './assets/style.scss';
 
   class App extends React.Component {
@@ -44,8 +45,14 @@ npm install -S @jswork/react-tabs
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-tabs">
-          <ReactTabs className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
+          <Tabs value="key1">
+            <Tab value="key1" title="tab1">
+              Tab content1
+            </Tab>
+            <Tab value="key2" title="tab2">
+              Tab content2
+            </Tab>
+          </Tabs>
         </ReactDemokit>
       );
     }
