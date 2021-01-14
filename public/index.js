@@ -10,12 +10,19 @@ class App extends React.Component {
       <ReactDemokit
         className="p-3 app-container"
         url="https://github.com/afeiship/react-tabs">
-        <Tabs value="key1">
-          <Tab value="key1" title="tab1">
+        <Tabs
+          defaultValue="key1"
+          onChange={(e) => {
+            console.log('runtime value:', e.target.value);
+          }}>
+          <Tab value="key1" title="tab1 title">
             Tab content1
           </Tab>
-          <Tab value="key2" title="tab2">
+          <Tab value="key2" title="tab2 title">
             Tab content2
+          </Tab>
+          <Tab value="key3" title="tab3 title">
+            Tab content3
           </Tab>
         </Tabs>
       </ReactDemokit>

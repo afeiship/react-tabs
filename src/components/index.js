@@ -16,7 +16,11 @@ export default class ReactTabs extends Component {
      */
     className: PropTypes.string,
     /**
-     * The changed value.
+     * The default value.
+     */
+    defaultValue: PropTypes.string,
+    /**
+     * The runtime value.
      */
     value: PropTypes.string,
     /**
@@ -35,13 +39,13 @@ export default class ReactTabs extends Component {
 
   constructor(inProps) {
     super(inProps);
-    const { value } = inProps;
-    this.state = { value };
+    const { defaultValue } = inProps;
+    this.state = { value: defaultValue };
   }
 
   shouldComponentUpdate(inProps) {
     const { value } = inProps;
-    if (value !== this.state.value) {
+    if (typeof value !== 'undefined' && value !== this.state.value) {
       this.setState({ value });
     }
     return true;
@@ -68,7 +72,10 @@ export default class ReactTabs extends Component {
 
   handleMenuClick = (inEvent) => {
     const { value } = inEvent.target.dataset;
-    this.setState({ value });
+    const { onChange } = this.props;
+    const target = { value };
+    this.setState(target);
+    onChange({ target });
   };
 
   render() {
