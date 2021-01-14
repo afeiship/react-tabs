@@ -12,12 +12,13 @@ npm install -S @jswork/react-tabs
 ```
 
 ## properties
-| Name      | Type    | Required | Default | Description                           |
-| --------- | ------- | -------- | ------- | ------------------------------------- |
-| className | string  | false    | -       | The extended className for component. |
-| value     | string  | false    | -       | The changed value.                    |
-| extra     | element | false    | -       | The extra element.                    |
-| onChange  | func    | false    | noop    | The change handler.                   |
+| Name         | Type    | Required | Default | Description                           |
+| ------------ | ------- | -------- | ------- | ------------------------------------- |
+| className    | string  | false    | -       | The extended className for component. |
+| defaultValue | string  | false    | -       | The default value.                    |
+| value        | string  | false    | -       | The runtime value.                    |
+| extra        | element | false    | -       | The extra element.                    |
+| onChange     | func    | false    | noop    | The change handler.                   |
 
 
 ## usage
@@ -45,12 +46,19 @@ npm install -S @jswork/react-tabs
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-tabs">
-          <Tabs value="key1">
-            <Tab value="key1" title="tab1">
+          <Tabs
+            defaultValue="key1"
+            onChange={(e) => {
+              console.log('runtime value:', e.target.value);
+            }}>
+            <Tab value="key1" title="tab1 title">
               Tab content1
             </Tab>
-            <Tab value="key2" title="tab2">
+            <Tab value="key2" title="tab2 title">
               Tab content2
+            </Tab>
+            <Tab value="key3" title="tab3 title">
+              Tab content3
             </Tab>
           </Tabs>
         </ReactDemokit>
