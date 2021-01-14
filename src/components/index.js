@@ -82,18 +82,16 @@ export default class ReactTabs extends Component {
         className={classNames(CLASS_NAME, className)}
         {...props}>
         <nav className={`${CLASS_NAME}__nav`}>
-          {this.menu.map((menu) => {
-            return (
-              <div
-                className="is-item"
-                data-value={menu.value}
-                data-active={_value === menu.value}
-                onClick={this.handleMenuClick}
-                key={menu.value}>
-                {menu.title}
-              </div>
-            );
-          })}
+          {this.menu.map((menu) => (
+            <div
+              className="is-item"
+              data-value={menu.value}
+              data-active={_value === menu.value}
+              onClick={this.handleMenuClick}
+              key={menu.value}>
+              {menu.title}
+            </div>
+          ))}
         </nav>
         <div className={`${CLASS_NAME}__content`}>{this.children}</div>
         {extra}

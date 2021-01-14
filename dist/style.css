@@ -1,11 +1,7 @@
 .react-tabs__nav {
-  border: 1px solid #f00;
-  cursor: default; }
-  .react-tabs__nav[data-active="true"] {
-    color: #f00; }
+  cursor: pointer; }
 
 .react-tabs__tab {
-  border: 1px solid #060;
   display: none; }
   .react-tabs__tab[data-active="true"] {
     display: block; }

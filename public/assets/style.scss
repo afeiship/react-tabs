@@ -4,4 +4,24 @@
 @import "~@jswork/react-demokit/dist/style.scss";
 
 .app-container {
+  .react-tabs {
+    border-radius: 5px;
+    overflow: hidden;
+    &__nav {
+      background: #eee;
+      .is-item {
+        display: inline-block;
+        padding: 10px 40px;
+        transition: all 0.3s;
+        &[data-active="true"] {
+          background: #ddd;
+          color: #f00;
+        }
+      }
+    }
+    &__content {
+      background: #fefefe;
+      padding: 14px;
+    }
+  }
 }

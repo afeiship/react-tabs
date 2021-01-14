@@ -18,7 +18,6 @@ class App extends React.Component {
             Tab content2
           </Tab>
         </Tabs>
-        <button className="button is-primary is-fullwidth">Start~</button>
       </ReactDemokit>
     );
   }
