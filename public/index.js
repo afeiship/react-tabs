@@ -25,6 +25,23 @@ class App extends React.Component {
             Tab content3
           </Tab>
         </Tabs>
+
+        <Tabs
+          defaultValue="key1"
+          trigger={['onMouseEnter']}
+          onChange={(e) => {
+            console.log('runtime value:', e.target.value);
+          }}>
+          <Tab value="key1" title="tab1 title">
+            Tab content1
+          </Tab>
+          <Tab value="key2" title="tab2 title">
+            Tab content2
+          </Tab>
+          <Tab value="key3" title="tab3 title">
+            Tab content3
+          </Tab>
+        </Tabs>
       </ReactDemokit>
     );
   }

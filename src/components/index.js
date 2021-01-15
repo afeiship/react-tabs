@@ -24,6 +24,10 @@ export default class ReactTabs extends Component {
      */
     value: PropTypes.string,
     /**
+     * The trigger event.
+     */
+    trigger: PropTypes.array,
+    /**
      * The extra element.
      */
     extra: PropTypes.element,
@@ -34,6 +38,7 @@ export default class ReactTabs extends Component {
   };
 
   static defaultProps = {
+    trigger: ['onClick'],
     onChange: noop
   };
 
@@ -70,7 +75,16 @@ export default class ReactTabs extends Component {
     });
   }
 
-  handleMenuClick = (inEvent) => {
+  get triggers() {
+    const { trigger } = this.props;
+    const result = {};
+    trigger.forEach((onEvent) => {
+      result[onEvent] = this.handleTrigger;
+    });
+    return result;
+  }
+
+  handleTrigger = (inEvent) => {
     const { value } = inEvent.target.dataset;
     const { onChange } = this.props;
     const target = { value };
@@ -79,7 +93,7 @@ export default class ReactTabs extends Component {
   };
 
   render() {
-    const { className, value, children, extra, ...props } = this.props;
+    const { className, value, children, extra, trigger, ...props } = this.props;
     const _value = this.state.value;
 
     return (
@@ -94,8 +108,8 @@ export default class ReactTabs extends Component {
               className="is-item"
               data-value={menu.value}
               data-active={_value === menu.value}
-              onClick={this.handleMenuClick}
-              key={menu.value}>
+              key={menu.value}
+              {...this.triggers}>
               {menu.title}
             </div>
           ))}
