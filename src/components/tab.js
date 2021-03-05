@@ -1,4 +1,3 @@
-import noop from '@jswork/noop';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -16,16 +15,10 @@ export default class ReactTab extends Component {
     /**
      * The changed value.
      */
-    value: PropTypes.string,
-    /**
-     * The change handler.
-     */
-    onChange: PropTypes.func
+    value: PropTypes.string
   };
 
-  static defaultProps = {
-    onChange: noop
-  };
+  static defaultProps = {};
 
   render() {
     const { className, title, value, ...props } = this.props;

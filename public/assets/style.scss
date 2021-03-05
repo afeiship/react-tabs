@@ -4,10 +4,19 @@
 @import "~@jswork/react-demokit/dist/style.scss";
 
 .app-container {
+  .is-body {
+    padding: 20px;
+    width: 50%;
+    min-width: 320px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
   .react-tabs {
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 10px;
+
     &__nav {
       background: #eee;
       .is-item {
